@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mapbox-db</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- <ion-item>
+  <div *ngFor="let item of mapboxServ.overlayArray" >
+  <button id="fit" (click)="loadSingleMap(item._id)">{{item.source}}</button>
+  </div>
+</ion-item> -->
+<!-- <ion-button (click)="loadOverlay()">{{overlayId}}</ion-button> -->
+<ion-item>
+  <ion-label>Popover</ion-label>
+
+  <ion-select
+    interface="alert"
+    placeholder="Select Map"
+    (ionChange)="onSelect($event)"
+  >
+    <ion-select-option
+      *ngFor="let item of mapboxServ.overlayArray"
+      value="{{ item._id }}"
+      
+      >{{ item.source }}</ion-select-option
+    >
+    <!-- <ion-select-option value="blonde">Blonde</ion-select-option>
+    <ion-select-option value="black">Black</ion-select-option>
+    <ion-select-option value="red">Red</ion-select-option> -->
+  </ion-select>
+</ion-item>
+<!-- <button id="fit" (click)="fixPositionOnClick()">Fit to Kenya</button> -->
+<!-- <ion-button (click)="loadSingleMap('5f22ea7a143f7802407e6906')"></ion-button> -->
+
+<ion-content>
+  <ion-item>
+    <div style="width: 100%;" class="marker" id="mapdb" class="match-parent"></div>
+
+    <div class="map-overlay Bottom">
+      <div class="map-overlay-inner">
+        <label>Layer opacity: <span id="slider-value">100%</span></label>
+        <input
+          id="slider"
+          type="range"
+          min="0"
+          max="100"
+          step="0"
+          value="100"
+        />
+      </div>
+    </div>
+  </ion-item>
+  <nav id="filter-group" class="filter-group"></nav>
+</ion-content>
